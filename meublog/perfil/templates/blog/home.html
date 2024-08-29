@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Profissional</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6f91; /* Rosa vibrante */
+            --secondary-color: #ffe4e6; /* Rosa claro */
+            --text-color: #ffffff; /* Branco */
+            --background-color: #fff5f7; /* Branco rosado */
+            --hover-color: #ff4f7d; /* Rosa escuro para efeitos de hover */
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--text-color) !important;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: var(--hover-color) !important;
+        }
+
+        .container {
+            background-color: var(--background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .d-flex {
+            margin-top: 40px;
+        }
+
+        .d-flex img {
+            max-width: 100%;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .d-flex img:hover {
+            transform: scale(1.05);
+        }
+
+        .text {
+            max-width: 500px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--hover-color);
+        }
+
+        @media (max-width: 768px) {
+            .d-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .text {
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Meu Blog</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Meus Cursos</h1>
+        <ul class="list-group mb-4">
+            {% for curso in cursos %}
+                <li class="list-group-item">{{ curso.nome }} - {{ curso.instituicao }} ({{ curso.ano_conclusao }})</li>
+            {% endfor %}
+        </ul>
+
+        <h1>Meus Interesses</h1>
+        <ul class="list-group">
+            {% for interesse in interesses %}
+            <li class="list-group-item">
+                <h5>{{ interesse.titulo }}</h5>
+                <p>{{ interesse.descricao }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

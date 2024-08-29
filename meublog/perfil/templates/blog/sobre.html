@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff6f91;
+            --secondary-color: #ffe4e6;
+            --text-color: #ffffff;
+            --background-color: #fff5f7;
+            --hover-color: #ff4f7d;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--text-color) !important;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: var(--hover-color) !important;
+        }
+
+        .container {
+            background-color: var(--background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .profile-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: var(--background-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-image img {
+            max-width: 150px;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .profile-image img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-text {
+            margin-left: 20px;
+            max-width: 500px;
+        }
+
+        .profile-text h1 {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .profile-text p {
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-text {
+                text-align: center;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Meu Blog</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Sobre Mim</h1>
+        <p>Olá! Este é meu blog profissional onde compartilho meus cursos e interesses.</p>
+    </div>
+
+    <div class="profile-section d-flex justify-content-around align-items-center w-100">
+        <div class="profile-image">
+            <img src="{% static 'img/stella.jpeg' %}" alt="Stella">
+        </div>
+        <div class="profile-text">
+            <h1>Maria Stella Teodoro</h1>
+            <p>Sou de Paraná - RN, tenho 18 anos, atualmente estudo no IFRN - Campus Pau dos Ferros,
+                pretendo fazer faculdade de Medicina e tenho muito interesse em informática e tecnologia, 
+                apesar de não querer seguir na área.
+            </p>
+        </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
